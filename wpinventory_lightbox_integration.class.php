@@ -276,7 +276,6 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 				}
 
 				$string = str_ireplace( $tags[0][ $index ], $value, $string );
-				echo '<br>' . $slug . ' = ' . $value;
 			}
 		}
 
