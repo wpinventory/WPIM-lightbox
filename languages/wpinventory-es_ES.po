@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Inventory Lightbox Integration Add On\n"
+"POT-Creation-Date: 2016-07-04 10:46-0600\n"
+"PO-Revision-Date: 2016-07-04 10:47-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wpinventory_lightbox_integration.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: wpinventory_lightbox_integration.class.php:120
+msgid "Do Not Adjust"
+msgstr ""
+
+#: wpinventory_lightbox_integration.class.php:121
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: wpinventory_lightbox_integration.class.php:122
+msgid "Medium"
+msgstr "Mediana"
+
+#: wpinventory_lightbox_integration.class.php:123
+msgid "Large"
+msgstr "Largo"
+
+#: wpinventory_lightbox_integration.class.php:124
+msgid "Full"
+msgstr "Completa"
+
+#: wpinventory_lightbox_integration.class.php:134
+msgid "Lightbox Integration"
+msgstr "Integración de lightbox"
+
+#: wpinventory_lightbox_integration.class.php:136
+msgid "Open Inventory Images in Lightbox"
+msgstr "Imágenes de inventario abierto en Lightbox"
+
+#: wpinventory_lightbox_integration.class.php:139
+msgid "Lightbox Image Size"
+msgstr "Imagen del lightbox"
+
+#: wpinventory_lightbox_integration.class.php:144
+msgid "Adjust Image Title"
+msgstr "Ajustar imagen título"
+
+#: wpinventory_lightbox_integration.class.php:147
+#: wpinventory_lightbox_integration.class.php:154
+msgid ""
+"Use any fields you like, in shortcode-format.  Example: [name] - "
+"[description] by [manufacturer]"
+msgstr ""
+"Utilice los campos que quieras, en formato de código.  Ejemplo: [name] - "
+"[description]  / [manufacturer]"
+
+#: wpinventory_lightbox_integration.class.php:151
+msgid "Adjust Image Alt"
+msgstr "Ajustar imagen Alt"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Inventory Lightbox Integration Add On"
+msgstr "Integración de inventario de WP Lightbox añadir en"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.wpinventory.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Integrates WP Inventory Manager with WP Lightbox 2 or Simple Lightbox.  Also "
+"allows altering of image size when opening the image, and allows modifying "
+"image titles / alt tags with robust shortcode-based system."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Inventory Manager"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.wpinventory.com/"
+msgstr ""
