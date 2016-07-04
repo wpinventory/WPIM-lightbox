@@ -236,7 +236,7 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 			}
 		}
 
-		return $attributes;
+		return ($attributes) ? ' ' . $attributes : '';
 	}
 
 	/**
