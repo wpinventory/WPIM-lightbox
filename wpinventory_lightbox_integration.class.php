@@ -111,6 +111,23 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 	public static function wpim_edit_settings() {
 		self::load_settings();
 
+		$plugins = get_option( 'active_plugins' );
+		$plugins = array_filter( $plugins, function ( $plugin ) {
+			return ( FALSE !== stripos( $plugin, 'simple-lightbox' ) || FALSE !== stripos( $plugin, 'lightbox-2' ) );
+		} );
+
+		$lightbox_plugin_error = ( empty( $plugins ) );
+		$image_error           = ( 'new' != wpinventory_get_config( 'open_images_new_window' ) );
+
+		$errors = array();
+		if ( $lightbox_plugin_error ) {
+			$errors[] = self::__( 'WARNING: No lightbox plugin detected.<br>This integrates with the popular plugins "WP Lightbox 2" or "Simple Lightbox".  You must have one of those plugins installed for this to work.' );
+		}
+
+		if ( $image_error ) {
+			$errors[] = sprintf( self::__( 'WARNING: In %sImage Settings%s, you must set "Clicking Image Displays Larger Image" to "Yes - Open in New Window" for lightboxes to work properly.' ), '<a class="wpim_subtab_link" href="#imagesettings">', '</a>' );
+		}
+
 		$open_in_lightbox       = self::get_setting( 'open_in_lightbox' );
 		$adjust_open_image_size = self::get_setting( 'adjust_open_image_size' );
 		$image_title            = self::get_setting( 'image_title' );
@@ -133,6 +150,10 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 
 		echo '<tr class="subtab"><th colspan="2"><h4>' . self::__( 'Lightbox Integration' ) . '</h4></th>';
 		echo '</tr>';
+		if ( $errors ) {
+			echo '<tr><td colspan="2"><div class="wpim_notice wpim_error">' . implode( '<br><br>', $errors ) . '</div></td></tr>';
+		}
+
 		echo '<tr><th>' . self::__( 'Open Inventory Images in Lightbox' ) . '</th>';
 		echo '<td>' . WPIMAdmin::dropdown_yesno( self::$config_key_name_field . '[open_in_lightbox]', $open_in_lightbox ) . '</td>';
 		echo '</tr>';
@@ -179,7 +200,7 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 	 * Allows editing of the image title tag via shortcodes.  Set in the WP Inventory Settings interface.
 	 *
 	 * @param string $title
-	 * @param int $is_single
+	 * @param int    $is_single
 	 *
 	 * @return string
 	 */
@@ -198,7 +219,7 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 	 * Allows editing of the image alt tag via shortcodes.  Set in the WP Inventory Settings interface.
 	 *
 	 * @param string $alt
-	 * @param int $is_single
+	 * @param int    $is_single
 	 *
 	 * @return string
 	 */
@@ -218,7 +239,7 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 	 * Used to turn on the "lightbox" effect for WP Lightbox 2 by adding rel="lightbox" to the images.
 	 *
 	 * @param string $attributes
-	 * @param int $is_single
+	 * @param int    $is_single
 	 *
 	 * @return string
 	 */
@@ -236,11 +257,12 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 			}
 		}
 
-		return ($attributes) ? ' ' . $attributes : '';
+		return ( $attributes ) ? ' ' . $attributes : '';
 	}
 
 	/**
-	 * If it's the Simple Lightbox plugin, we have to "apply_filters('the_content')" to the image tags for them to get picked up.
+	 * If it's the Simple Lightbox plugin, we have to "apply_filters('the_content')" to the image tags for them to get
+	 * picked up.
 	 *
 	 * @param string $tags
 	 *

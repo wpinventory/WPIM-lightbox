@@ -3,7 +3,7 @@ Contributors: wpinventory.com
 Donate link: http://www.wpinventory.com/contribute/
 Tags: inventory, shopping cart, inventory manager, import, export, upgrade
 Requires at least: 3.5.0
-Tested up to: 4.9.1
+Tested up to: 4.9.4
 Stable tag: 0.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,9 @@ lightbox feature, but still control the image size!
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Improve feedback in "Settings" so more user friendly.
 
 = 1.0.0 =
 * Initial public release.
