@@ -131,8 +131,11 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 			$size_array[ $size ] = ucwords( str_ireplace( array( '_', '-' ), ' ', $size ) );
 		}
 
+
 		echo '<tr class="subtab"><th colspan="2"><h4>' . self::__( 'Lightbox Integration' ) . '</h4></th>';
 		echo '</tr>';
+		echo '<tr><th colspan="2">' . self::__("<u>IMPORTANT</u>:  This add on uses <a href=\"https://wordpress.org/plugins/wp-lightbox-2/\" target=\"_blank\">WP Lightbox 2</a>.  Please be sure you install and activate that before proceeding.") . '</th></tr>';
+
 		echo '<tr><th>' . self::__( 'Open Inventory Images in Lightbox' ) . '</th>';
 		echo '<td>' . WPIMAdmin::dropdown_yesno( self::$config_key_name_field . '[open_in_lightbox]', $open_in_lightbox ) . '</td>';
 		echo '</tr>';
@@ -143,14 +146,14 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 
 		echo '<tr><th>' . self::__( 'Adjust Image Title' ) . '</th>';
 		echo '<td>';
-		echo '<input type="text" name="' . self::$config_key_name_field . '[image_title]" class="widefat" value="' . $image_title . '">';
+		echo '<input type="text" name="' . self::$config_key_name_field . '[image_title]" class="widefat" value="' . ($image_title ? $image_title : "") . '">';
 		echo '<p class="description">' . self::__( 'Use any fields you like, in shortcode-format.  Example: [name] - [description] by [manufacturer]' ) . '</p>';
 		echo '</td>';
 		echo '</tr>';
 
 		echo '<tr><th>' . self::__( 'Adjust Image Alt' ) . '</th>';
 		echo '<td>';
-		echo '<input type="text" name="' . self::$config_key_name_field . '[image_alt]" class="widefat" value="' . $image_alt . '">';
+		echo '<input type="text" name="' . self::$config_key_name_field . '[image_alt]" class="widefat" value="' . ($image_alt ? $image_alt : "") . '">';
 		echo '<p class="description">' . self::__( 'Use any fields you like, in shortcode-format.  Example: [name] - [description] by [manufacturer]' ) . '</p>';
 		echo '</td>';
 		echo '</tr>';

@@ -4,7 +4,7 @@
  * Plugin Name:    WP Inventory Lightbox Integration Add On
  * Plugin URI:    http://www.wpinventory.com
  * Description:    Integrates WP Inventory Manager with WP Lightbox 2 or Simple Lightbox.  Also allows altering of image size when opening the image, and allows modifying image titles / alt tags with robust shortcode-based system.
- * Version:        0.5.0
+ * Version:        1.0.0
  * Author:        WP Inventory Manager
  * Author URI:    http://www.wpinventory.com/
  * Text Domain:    wpinventory
