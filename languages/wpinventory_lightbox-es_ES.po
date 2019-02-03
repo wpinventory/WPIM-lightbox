@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Inventory Lightbox Integration Add On\n"
-"POT-Creation-Date: 2016-07-04 10:46-0600\n"
-"PO-Revision-Date: 2016-07-25 15:21-0400\n"
+"POT-Creation-Date: 2018-03-23 16:28-0600\n"
+"PO-Revision-Date: 2018-03-23 16:30-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpinventory_lightbox_integration.php\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -20,44 +20,65 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: wpinventory_lightbox_integration.class.php:120
+#: wpinventory_lightbox_integration.class.php:124
+msgid ""
+"WARNING: No lightbox plugin detected.<br>This integrates with the popular "
+"plugins \"WP Lightbox 2\" or \"Simple Lightbox\".  You must have one of "
+"those plugins installed for this to work."
+msgstr ""
+"ADVERTENCIA: Ningún plugin lightbox detectado.<br>Integra con los plugins "
+"populares \"WP Lightbox 2\" o \"Caja de luz Simple\".  Debe tener uno de "
+"esos plugins instalados para que funcione."
+
+#: wpinventory_lightbox_integration.class.php:128
+#, php-format
+msgid ""
+"WARNING: In %sImage Settings%s, you must set \"Clicking Image Displays "
+"Larger Image\" to \"Yes - Open in New Window\" for lightboxes to work "
+"properly."
+msgstr ""
+"ADVERTENCIA: en %sConfiguración de imagen%s, debe configurar “Hacer clic en "
+"la imagen muestra una imagen más grande” en “Sí - Abrir en una ventana "
+"nueva” para que las cajas de luz funcionen correctamente."
+
+#: wpinventory_lightbox_integration.class.php:137
 msgid "Do Not Adjust"
 msgstr "No ajustar"
 
-#: wpinventory_lightbox_integration.class.php:121
+#: wpinventory_lightbox_integration.class.php:138
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: wpinventory_lightbox_integration.class.php:122
+#: wpinventory_lightbox_integration.class.php:139
 msgid "Medium"
 msgstr "Mediana"
 
-#: wpinventory_lightbox_integration.class.php:123
+#: wpinventory_lightbox_integration.class.php:140
 msgid "Large"
 msgstr "Grande "
 
-#: wpinventory_lightbox_integration.class.php:124
+#: wpinventory_lightbox_integration.class.php:141
 msgid "Full"
 msgstr "Completa"
 
-#: wpinventory_lightbox_integration.class.php:134
+#: wpinventory_lightbox_integration.class.php:151
 msgid "Lightbox Integration"
 msgstr "Integración con Lightbox"
 
-#: wpinventory_lightbox_integration.class.php:136
+#: wpinventory_lightbox_integration.class.php:157
 msgid "Open Inventory Images in Lightbox"
 msgstr "Abrir imágenes en Lightbox"
 
-#: wpinventory_lightbox_integration.class.php:139
+#: wpinventory_lightbox_integration.class.php:160
 msgid "Lightbox Image Size"
 msgstr "Tamaño de la imagen de Lightbox"
 
-#: wpinventory_lightbox_integration.class.php:144
+#: wpinventory_lightbox_integration.class.php:165
 msgid "Adjust Image Title"
 msgstr "Ajustar título de la imagen"
 
-#: wpinventory_lightbox_integration.class.php:147
-#: wpinventory_lightbox_integration.class.php:154
+#: wpinventory_lightbox_integration.class.php:168
+#: wpinventory_lightbox_integration.class.php:175
 msgid ""
 "Use any fields you like, in shortcode-format.  Example: [name] - "
 "[description] by [manufacturer]"
@@ -65,7 +86,7 @@ msgstr ""
 "Utilice los campos que quieras, en formato de código corto.  Ejemplo: "
 "[nombre] - [descripción]  / [fabricante]"
 
-#: wpinventory_lightbox_integration.class.php:151
+#: wpinventory_lightbox_integration.class.php:172
 msgid "Adjust Image Alt"
 msgstr "Ajustar imagen"
 
