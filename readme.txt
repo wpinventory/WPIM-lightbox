@@ -66,9 +66,11 @@ lightbox feature, but still control the image size!
 
 
 == Changelog ==
+= 1.0.3 =
+* Improve feedback in "Settings" so more user friendly.
 
 = 1.0.1 =
-* Improve feedback in "Settings" so more user friendly.
+* Added sentence pointing out WPIM lightbox integration requires WP Lightbox 2.
 
 = 1.0.0 =
 * Initial public release.
