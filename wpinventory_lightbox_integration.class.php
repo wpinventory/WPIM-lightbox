@@ -47,18 +47,18 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 
 	private static $config_key_name_field = 'lightbox_settings';
 
-	private static $lightbox_settings = array();
+	private static $lightbox_settings = [];
 
 	/**
 	 * First call.  Continues only if Inventory Manager is Installed
 	 */
 	public static function start() {
-		add_filter( 'wpim_default_config', array( __CLASS__, 'wpim_default_config' ) );
-		add_action( 'wpim_edit_settings_media', array( __CLASS__, 'wpim_edit_settings' ) );
-		add_action( 'init', array( __CLASS__, 'init' ) );
+		add_filter( 'wpim_default_config', [ __CLASS__, 'wpim_default_config' ] );
+		add_action( 'wpim_edit_settings_media', [ __CLASS__, 'wpim_edit_settings' ] );
+		add_action( 'init', [ __CLASS__, 'init' ] );
 		// Only set up the front-end hooks if we're not in the admin dashboard
 		if ( ! is_admin() ) {
-			add_filter( 'wpim_image_link_attributes', array( __CLASS__, 'wpim_image_link_attributes' ), 10, 2 );
+			add_filter( 'wpim_image_link_attributes', [ __CLASS__, 'wpim_image_link_attributes' ], 10, 2 );
 
 			/**
 			 * MAKE SETTINGS:
@@ -67,10 +67,10 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 			 * 3. Adjust image alt
 			 */
 			// NEW FILTERS:
-			add_filter( 'wim_open_image_size', array( __CLASS__, 'wim_open_image_size' ), 10, 2 );
-			add_filter( 'wpim_image_title', array( __CLASS__, 'wpim_image_title' ), 10, 2 );
-			add_filter( 'wpim_image_alt', array( __CLASS__, 'wpim_image_alt' ), 10, 2 );
-			add_filter( 'wpim_image_tags', array( __CLASS__, 'wpim_image_tags' ) );
+			add_filter( 'wim_open_image_size', [ __CLASS__, 'wim_open_image_size' ], 10, 2 );
+			add_filter( 'wpim_image_title', [ __CLASS__, 'wpim_image_title' ], 10, 2 );
+			add_filter( 'wpim_image_alt', [ __CLASS__, 'wpim_image_alt' ], 10, 2 );
+			add_filter( 'wpim_image_tags', [ __CLASS__, 'wpim_image_tags' ] );
 		}
 	}
 
@@ -95,12 +95,12 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 	 * @return array
 	 */
 	public static function wpim_default_config( $default ) {
-		$default[ self::$config_key_name_field ] = array(
+		$default[ self::$config_key_name_field ] = [
 			'open_in_lightbox'       => 1,
 			'adjust_open_image_size' => 'large',
 			'image_title'            => 0,
 			'image_alt'              => 0
-		);
+		];
 
 		return $default;
 	}
@@ -119,7 +119,7 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 		$lightbox_plugin_error = ( empty( $plugins ) );
 		$image_error           = ( 'new' != wpinventory_get_config( 'open_images_new_window' ) );
 
-		$errors = array();
+		$errors = [];
 		if ( $lightbox_plugin_error ) {
 			$errors[] = self::__( 'WARNING: No lightbox plugin detected.<br>This integrates with the popular plugins "WP Lightbox 2" or "Simple Lightbox".  You must have one of those plugins installed for this to work.' );
 		}
@@ -133,13 +133,13 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 		$image_title            = self::get_setting( 'image_title' );
 		$image_alt              = self::get_setting( 'image_alt' );
 
-		$size_array = array(
+		$size_array = [
 			''          => self::__( 'Do Not Adjust' ),
 			'thumbnail' => self::__( 'Thumbnail' ),
 			'medium'    => self::__( 'Medium' ),
 			'large'     => self::__( 'Large' ),
 			'full'      => self::__( 'Full' )
-		);
+		];
 
 		$intermediate_sizes = get_intermediate_image_sizes();
 		$intermediate_sizes = array_diff( array_values( $intermediate_sizes ), array_keys( $size_array ) );
@@ -149,9 +149,9 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 		}
 
 
-		echo '<tr class="subtab"><th colspan="2"><h4>' . self::__( 'Lightbox Integration' ) . '</h4></th>';
+		echo '<tr class="subtab"><th colspan="2"><h4 data-tab="lightboxintegration">' . self::__( 'Lightbox Integration' ) . '</h4></th>';
 		echo '</tr>';
-		echo '<tr><th colspan="2">' . self::__("<u>IMPORTANT</u>:  This add on uses <a href=\"https://wordpress.org/plugins/wp-lightbox-2/\" target=\"_blank\">WP Lightbox 2</a>.  Please be sure you install and activate that before proceeding.") . '</th></tr>';
+		echo '<tr><th colspan="2">' . self::__( "<u>IMPORTANT</u>:  This add on uses <a href=\"https://wordpress.org/plugins/wp-lightbox-2/\" target=\"_blank\">WP Lightbox 2</a>.  Please be sure you install and activate that before proceeding." ) . '</th></tr>';
 		if ( $errors ) {
 			echo '<tr><td colspan="2"><div class="wpim_notice wpim_error">' . implode( '<br><br>', $errors ) . '</div></td></tr>';
 		}
@@ -166,14 +166,14 @@ Class WPIMLightboxIntegration extends WPIMLightboxCore {
 
 		echo '<tr><th>' . self::__( 'Adjust Image Title' ) . '</th>';
 		echo '<td>';
-		echo '<input type="text" name="' . self::$config_key_name_field . '[image_title]" class="widefat" value="' . ($image_title ? $image_title : "") . '">';
+		echo '<input type="text" name="' . self::$config_key_name_field . '[image_title]" class="widefat" value="' . ( $image_title ? $image_title : "" ) . '">';
 		echo '<p class="description">' . self::__( 'Use any fields you like, in shortcode-format.  Example: [name] - [description] by [manufacturer]' ) . '</p>';
 		echo '</td>';
 		echo '</tr>';
 
 		echo '<tr><th>' . self::__( 'Adjust Image Alt' ) . '</th>';
 		echo '<td>';
-		echo '<input type="text" name="' . self::$config_key_name_field . '[image_alt]" class="widefat" value="' . ($image_alt ? $image_alt : "") . '">';
+		echo '<input type="text" name="' . self::$config_key_name_field . '[image_alt]" class="widefat" value="' . ( $image_alt ? $image_alt : "" ) . '">';
 		echo '<p class="description">' . self::__( 'Use any fields you like, in shortcode-format.  Example: [name] - [description] by [manufacturer]' ) . '</p>';
 		echo '</td>';
 		echo '</tr>';
